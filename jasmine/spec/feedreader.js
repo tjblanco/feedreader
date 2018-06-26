@@ -58,13 +58,11 @@ $(function() {
     describe('Initial Entries', function() {
         // Execute asynch function
         beforeEach(function(done){
-            loadFeed(1,function(){
-                done()
-            })
+            loadFeed(1,done)
         });
         // Check whether the feed are loaded properly
         it('at least a single .entry element exist in the .feed container', function(done) {
-            expect(document.querySelector('.entry')).not.toBe(null);
+            expect($('.feed >> .entry').length > 0).toBe(true);
             done();
         });
     });
@@ -73,9 +71,9 @@ $(function() {
         // Execute nested asynch function
         beforeEach(done => {
             loadFeed(1, () => {
-                window.firstFeed = document.querySelector('.entry-link').innerHTML;
+                window.firstFeed = document.querySelector('.feed').innerHTML;
                 loadFeed(2, () => {
-                    window.secondFeed = document.querySelector('.entry-link').innerHTML;
+                    window.secondFeed = document.querySelector('.feed').innerHTML;
                     done();
                 });
             });

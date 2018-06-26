@@ -1,4 +1,4 @@
-# Feed Reader testing
+# Feed Reader Testing
 
 ## Project Overview
 
